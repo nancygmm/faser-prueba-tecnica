@@ -1,6 +1,8 @@
 <div class="container">
 	<h1>Prueba técnica - Estudio Faser</h1>
 	<h2>Listado de tareas</h2>
+	
+
 	<!-- Indicamos que se cree una tabla -->
 	<table border="1">
 	<thead>
@@ -19,4 +21,10 @@
 		</tr>
 	</tbody>
 	</table>
+
+	<h4>Agregar nueva tarea</h4>
+	<input type="text" placeholder="Título" [(ngModel)]="nuevoTitulo"> <!-- Esta será la casilla que recibirá un input, el de título -->
+	<input type="number" placeholder="Duración (min)" [(ngModel)]="nuevosMinutos"> <!-- Input para ingresar la duración en min -->
+	<button (click)="agregarTarea()">Agregar</button>
+
 </div>
