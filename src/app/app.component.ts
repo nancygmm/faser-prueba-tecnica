@@ -40,10 +40,15 @@ export class AppComponent {
 	alternarSeleccion(id: number) {
 		const index = this.tareasSeleccionadas.indexOf(id);
 		if (index > -1) {
-			this.tareasSeleccionadas.splice(index, 1); // quitar si ya estaba
+			this.tareasSeleccionadas.splice(index, 1); 
 		} else {
-			this.tareasSeleccionadas.push(id); // agregar si no estaba
+			this.tareasSeleccionadas.push(id); // Agregar si no estaba marcada
 		}
+	}
+
+	eliminarTareasSeleccionadas() {
+		this.tareas = this.tareas.filter(t => !this.tareasSeleccionadas.includes(t.id));
+		this.tareasSeleccionadas = []; // Aqui refresca para que aparezcan las que no se eliminaron (básicamente es un update)
 	}
 
 }

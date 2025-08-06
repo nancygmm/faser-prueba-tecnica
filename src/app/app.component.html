@@ -32,4 +32,9 @@
 	<input type="text" placeholder="Título" [(ngModel)]="nuevoTitulo"> <!-- Esta será la casilla que recibirá un input, el de título -->
 	<input type="number" placeholder="Duración (min)" [(ngModel)]="nuevosMinutos" min="1" step="1" required> <!-- Input para ingresar la duración en min -->
 	<button (click)="agregarTarea()">Agregar</button>
+	<br><br>
+	<!-- Botón para eliminar tarea/s seleccionadas -->
+	<button (click)="eliminarTareasSeleccionadas()" [disabled]="tareasSeleccionadas.length === 0">Eliminar</button>
+
+
 </div>
