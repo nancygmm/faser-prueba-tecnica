@@ -1,12 +1,12 @@
 <div class="container">
 	<h1>Prueba técnica - Estudio Faser</h1>
 	<h2>Listado de tareas</h2>
-	
 
 	<!-- Indicamos que se cree una tabla -->
 	<table border="1">
 	<thead>
 		<tr> <!-- Aquí colocamos los nombres para cada columna -->
+		<th></th> <!-- Nueva columna para los checkboxes -->
 		<th>ID</th>
 		<th>Título</th>
 		<th>Duración (minutos)</th>
@@ -15,6 +15,12 @@
 	<tbody>
 		<!-- Mandamos a llamar los datos para nuestra tabla -->
 		<tr *ngFor="let tarea of tareas">
+		<td>
+			<!-- Checkbox para selección de tareas -->
+			<input type="checkbox" 
+				   [checked]="tareasSeleccionadas.includes(tarea.id)" 
+				   (change)="alternarSeleccion(tarea.id)">
+		</td>
 		<td>{{ tarea.id }}</td>
 		<td>{{ tarea.titulo }}</td>
 		<td>{{ tarea.minutos }}</td>
@@ -24,7 +30,6 @@
 
 	<h4>Agregar nueva tarea</h4>
 	<input type="text" placeholder="Título" [(ngModel)]="nuevoTitulo"> <!-- Esta será la casilla que recibirá un input, el de título -->
-	<input type="number" placeholder="Duración (min)" [(ngModel)]="nuevosMinutos"> <!-- Input para ingresar la duración en min -->
+	<input type="number" placeholder="Duración (min)" [(ngModel)]="nuevosMinutos" min="1" step="1" required> <!-- Input para ingresar la duración en min -->
 	<button (click)="agregarTarea()">Agregar</button>
-
 </div>
