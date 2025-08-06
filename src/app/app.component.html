@@ -7,9 +7,24 @@
 	<thead>
 		<tr> <!-- Aquí colocamos los nombres para cada columna -->
 		<th></th> <!-- Nueva columna para los checkboxes -->
-		<th>ID</th>
-		<th>Título</th>
-		<th>Duración (minutos)</th>
+		<th (click)="ordenarPor('id')" style="cursor: pointer;"> <!-- Al colocarnos encima de cualquier título de cualquier columna con un click cambiamos el orden -->
+			ID
+			<span *ngIf="ordenActual === 'id'">
+				{{ ascendente ? '↑' : '↓' }}
+			</span>
+		</th>
+		<th (click)="ordenarPor('titulo')" style="cursor: pointer;">
+			Título
+			<span *ngIf="ordenActual === 'titulo'">
+				{{ ascendente ? '↑' : '↓' }}
+			</span>
+		</th>
+		<th (click)="ordenarPor('minutos')" style="cursor: pointer;">
+			Duración (minutos)
+			<span *ngIf="ordenActual === 'minutos'">
+				{{ ascendente ? '↑' : '↓' }}
+			</span>
+		</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -35,6 +50,4 @@
 	<br><br>
 	<!-- Botón para eliminar tarea/s seleccionadas -->
 	<button (click)="eliminarTareasSeleccionadas()" [disabled]="tareasSeleccionadas.length === 0">Eliminar</button>
-
-
 </div>
