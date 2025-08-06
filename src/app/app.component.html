@@ -51,5 +51,8 @@
 	<!-- Botón para eliminar tarea/s seleccionadas -->
 	<button (click)="eliminarTareasSeleccionadas()" [disabled]="tareasSeleccionadas.length === 0" style="margin-right: 10px;">Eliminar</button>
 	<!-- Botón para marcar tareas seleccionadas como destacadas -->
-	<button (click)="marcarComoDestacadas()" [disabled]="tareasSeleccionadas.length === 0">Destacar</button>
+	<button (click)="marcarComoDestacadas()" [disabled]="tareasSeleccionadas.length === 0" style="margin-right: 10px;">Destacar</button>
+	<!-- Botón para ordenar aleatoriamente -->
+	<button (click)="ordenarAleatoriamente()">Orden Aleatorio</button>
+
 </div>

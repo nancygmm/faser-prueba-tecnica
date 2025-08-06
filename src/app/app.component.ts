@@ -78,4 +78,11 @@ export class AppComponent {
 		this.tareasSeleccionadas = []; 
 	}
 
+	ordenarAleatoriamente() {
+		this.tareas = this.tareas
+			.map(t => ({ ...t, random: Math.random() }))
+			.sort((a, b) => a.random - b.random) // Sortea el orden para que si sea aleatorio
+			.map(({ random, ...rest }) => rest);
+	}
+
 }
