@@ -29,7 +29,7 @@
 	</thead>
 	<tbody>
 		<!-- Mandamos a llamar los datos para nuestra tabla -->
-		<tr *ngFor="let tarea of tareas">
+		<tr *ngFor="let tarea of tareas" [ngClass]="{ 'destacada': tarea.destacada }">
 		<td>
 			<!-- Checkbox para selección de tareas -->
 			<input type="checkbox" 
@@ -49,5 +49,7 @@
 	<button (click)="agregarTarea()">Agregar</button>
 	<br><br>
 	<!-- Botón para eliminar tarea/s seleccionadas -->
-	<button (click)="eliminarTareasSeleccionadas()" [disabled]="tareasSeleccionadas.length === 0">Eliminar</button>
+	<button (click)="eliminarTareasSeleccionadas()" [disabled]="tareasSeleccionadas.length === 0" style="margin-right: 10px;">Eliminar</button>
+	<!-- Botón para marcar tareas seleccionadas como destacadas -->
+	<button (click)="marcarComoDestacadas()" [disabled]="tareasSeleccionadas.length === 0">Destacar</button>
 </div>

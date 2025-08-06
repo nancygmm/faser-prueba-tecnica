@@ -69,4 +69,13 @@ export class AppComponent {
 		});
 	}
 
+	marcarComoDestacadas() {
+		this.tareas.forEach(tarea => {
+			if (this.tareasSeleccionadas.includes(tarea.id)) {
+				tarea.destacada = true; // Valida que si la tarea es destacada
+			}
+		});
+		this.tareasSeleccionadas = []; 
+	}
+
 }
