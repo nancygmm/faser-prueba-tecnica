@@ -1,7 +1,22 @@
 <div class="container">
 	<h1>Prueba técnica - Estudio Faser</h1>
 	<h2>Listado de tareas</h2>
-	<ol>
-		<li *ngFor="let tarea of tareas">{{tarea.titulo}} ({{tarea.minutos}} minutos)</li>
-	</ol>
+	<!-- Indicamos que se cree una tabla -->
+	<table border="1">
+	<thead>
+		<tr> <!-- Aquí colocamos los nombres para cada columna -->
+		<th>ID</th>
+		<th>Título</th>
+		<th>Duración (minutos)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<!-- Mandamos a llamar los datos para nuestra tabla -->
+		<tr *ngFor="let tarea of tareas">
+		<td>{{ tarea.id }}</td>
+		<td>{{ tarea.titulo }}</td>
+		<td>{{ tarea.minutos }}</td>
+		</tr>
+	</tbody>
+	</table>
 </div>
